@@ -1,0 +1,38 @@
+plugins {
+    id 'application'
+}
+
+group 'volodymyr.medvediev'
+version '1.0'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+application {
+    mainClassName = 'volodymyr.medvediev.http.HttpServer'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'volodymyr.medvediev.http.HttpServer'
+    }
+}
+
+distributions {
+    main {
+        contents {
+            from 'server', {
+                into 'bin/server'
+            }
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:2.24.0'
+}
